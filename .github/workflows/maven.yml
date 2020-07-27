@@ -18,8 +18,14 @@ jobs:
         java-version: 1.8
     - name: Build with Maven
       run: mvn -B package --file pom.xml
-    - name: Upload a Build Artifact
-      uses: actions/upload-artifact@v2.1.1
+#    - name: Upload a Build Artifact
+#      uses: actions/upload-artifact@v2.1.1
+#      with:
+#       name: drop
+#       path: target/*.jar
+    - name: Azure WebApp Deploy
+      uses: Azure/webapps-deploy@v2
       with:
-       name: drop
-       path: target/*.jar
+          app-name: petclinicgh
+          publish-profile: ${{secrets.WEB_APP_PUBLISH_PROFILE}}
+          package: target/*.jar
