@@ -1,7 +1,7 @@
 name: petclinic-k8s
 on:
   push:
-    branches: [master, sri-k8s]
+    branches: [ master ]
   pull_request:
     branches: [ master ]
 
