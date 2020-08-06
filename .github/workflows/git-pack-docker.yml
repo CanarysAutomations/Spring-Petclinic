@@ -82,7 +82,7 @@ jobs:
       name: Deploy app to AKS
       with:
         manifests: |
-          deployment.yaml
+          git-pack-deployment.yaml
         images: |
           docker.pkg.github.com/canarysplayground/spring-petclinic/petclinic:${{ github.run_number }}
         imagepullsecrets: |
