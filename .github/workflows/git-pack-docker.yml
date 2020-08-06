@@ -24,11 +24,11 @@ jobs:
     - name: build and tag image
       run: |
         docker build -f ./Dockerfile -t spring-petclinic:${{ github.run_number }} .
-        docker tag spring-petclinic:${{ github.run_number }} docker.pkg.github.com/CanarysPlayground/Spring-Petclinic/petclinic:${{ github.run_number }}
+        docker tag spring-petclinic:${{ github.run_number }} docker.pkg.github.com/canarysplayground/spring-petclinic/petclinic:${{ github.run_number }}
     - name: scan image
       uses: Azure/container-scan@v0
       with:
-        image-name: docker.pkg.github.com/CanarysPlayground/Spring-Petclinic/petclinic:${{ github.run_number }}
+        image-name: docker.pkg.github.com/canarysplayground/spring-petclinic/petclinic:${{ github.run_number }}
     - name: push image
       run: |
-        docker push docker.pkg.github.com/CanarysPlayground/Spring-Petclinic/petclinic:${{ github.run_number }}
+        docker push docker.pkg.github.com/canarysplayground/spring-petclinic/petclinic:${{ github.run_number }}
