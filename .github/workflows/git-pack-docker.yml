@@ -20,7 +20,7 @@ jobs:
       run: mvn package --file pom.xml
     - name: docker login to github packages
       run: |
-        docker login docker.pkg.github.com -u docker-netes -p ${{ secrets.GITHUB_TOKEN }}
+        docker login docker.pkg.github.com -u srikanth-pusarla -p ${{ secrets.GITHUB_TOKEN }}
     - name: build and tag image
       run: |
         docker build -f ./Dockerfile -t spring-petclinic:${{ github.run_number }} .
