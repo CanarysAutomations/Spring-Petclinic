@@ -29,6 +29,7 @@ jobs:
       uses: Azure/container-scan@v0
       with:
         image-name: docker.pkg.github.com/canarysplayground/spring-petclinic/petclinic:${{ github.run_number }}
+        run-quality-checks: false
     - name: push image
       run: |
         docker push docker.pkg.github.com/canarysplayground/spring-petclinic/petclinic:${{ github.run_number }}
