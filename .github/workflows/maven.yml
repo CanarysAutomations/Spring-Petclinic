@@ -2,7 +2,7 @@ name: Deploy Spring-Petclinic to Azure Web App
 
 on:
   push:
-    branches: [ main ]
+    branches: [ phanisplay ]
 
 jobs:
   build:
