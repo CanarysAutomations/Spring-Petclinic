@@ -1,4 +1,4 @@
-name: Spring-Petclinic
+name: Deploy Spring-Petclinic to Azure Web App
 
 on:
   push:
@@ -23,11 +23,11 @@ jobs:
       uses: actions/upload-artifact@v2
       with:
         name: petclinic
-        path: target
+        path: target/*.jar
     
-    #- name: Azure WebApp Deploy
-    #  uses: Azure/webapps-deploy@v2
-    #  with:
-    #      app-name: petcliinic
-    #      publish-profile: ${{secrets.WEB_APP_PUBLISH_PROFILE}}
-    #      package: target/*.jar
+    - name: Azure WebApp Deploy
+      uses: Azure/webapps-deploy@v2
+      with:
+          app-name: petclinicgh
+          publish-profile: ${{ secrets.PETCLINICGH_PUBPRO_PHANI }}
+          package: target/*.jar
