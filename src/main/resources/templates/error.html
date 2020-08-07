@@ -3,7 +3,7 @@
 <html xmlns:th="https://www.thymeleaf.org" th:replace="~{fragments/layout :: layout (~{::body},'error')}">
 
   <body>
-    <marquee><img src="../static/resources/images/pets.png" th:src="@{/resources/images/pets.png}"/></marquee>
+    <img src="../static/resources/images/pets.png" th:src="@{/resources/images/pets.png}"/>
     <i><h1 style="background-color:DodgerBlue;">Something happened...</h1></i>
     <p th:text="${message}">Exception message</p>
   </body>
