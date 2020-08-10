@@ -1,7 +1,7 @@
 name: gitpack.Docker
 on:
   push:
-    branches: [ master ]
+    branches: [ sri-k8s ]
   pull_request:
     branches: [ master ]
 env:
@@ -32,7 +32,7 @@ jobs:
       uses: Azure/container-scan@v0
       with:
         image-name: docker.pkg.github.com/canarysplayground/spring-petclinic/petclinic:${{ github.run_number }}
-        severity-threshold: CRITICAL
+        severity-threshold: MEDIUM
     - name: push image
       run: |
         docker push docker.pkg.github.com/canarysplayground/spring-petclinic/petclinic:${{ github.run_number }}
