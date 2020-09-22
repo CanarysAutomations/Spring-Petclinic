@@ -24,10 +24,18 @@ jobs:
       with:
         name: petclinic
         path: target/*.jar
-    
-    - name: Azure WebApp Deploy
-      uses: Azure/webapps-deploy@v2
-      with:
-          app-name: petclinicgh
-          publish-profile: ${{ secrets.PETCLINICGH_PUBPRO_PHANI }}
-          package: target/*.jar
+  deploy:
+    name: DEPLOY TO AZURE
+    runs-on: ubuntu-latest
+    steps:
+      - name: Download Artifact
+        uses: actions/download-artifact@v2
+        with:
+          name: petclinic
+          path: ${{github.workspace}} 
+      - name: Azure WebApp Deploy
+        uses: Azure/webapps-deploy@v2
+        with:
+            app-name: petclinicapp
+            publish-profile: ${{ secrets.WEB_APP_PUBLISH_PROFILE }}
+            package: ./*.jar
